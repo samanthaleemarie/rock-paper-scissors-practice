@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Rock👊, Paper✋, Scissors✌️</h1>
+        <button onclick="getUserChoice()">Start Game</button>
+    </div>
+    <script>
+        // 👊 📝 ✂️ 
+        // Write a function called getComputerChoice that uses Math.random(), and returns one string either "rock", "paper", or "scissors" randomly each time it's called.
+        const getComputerChoice = () => {
+            const randomNum = (Math.floor(Math.random() * 3));
+            if (randomNum === 0) {
+                return "rock";
+            }
+            else if (randomNum === 1) {
+                return "paper";
+            }
+            else if (randomNum === 2) {
+                return "scissors";
+            }
+        }
+
+        // Make a variable called userChoice that utilizes prompt() to grab the user's choice of "rock", "paper", or "scissors", (might want to lowercase the input) and stores it.
+        const getUserChoice = () => {
+            const userChoice = prompt("Enter one of the following: rock, paper, or scissors").toLowerCase();
+
+            const computerChoice = getComputerChoice();
+
+            alert(`You threw ${userChoice}. The computer threw ${computerChoice}.`);
+
+            const checkWinner = (userHand, computerHand) => {
+                if ( userHand != "rock" && userHand != "paper" && userHand != "scissors") {
+                    return "Your entry is invalid. Computer wins!"
+                }
+                else if (userHand === computerHand) {
+                    return "It's a tie!";
+                }
+                else if ((userHand === "rock" && computerHand === "paper") || (userHand === "paper" && computerHand === "scissors") || (userHand === "scissors" && computerHand === "rock")) {
+                    return "💻The computer wins!";
+                } 
+                else {
+                    return "😁You win!";
+                }
+            }
+            alert(checkWinner(userChoice, computerChoice));
+        }
+
+        // Call the getComputerChoice function and store it's return value in a variable called computerChoice
+
+        // const computerChoice = getComputerChoice();
+
+        // // console.log out the following using template literals:
+        // // "You threw ${cleanedUserChoice}"
+        // // "The computer threw ${computerChoice}"
+
+        // alert(`You threw ${userChoice}. The computer threw ${computerChoice}.`);
+
+        // // Write a function called checkWinner() that takes 2 parameters: userHand, computerHand
+        // // and returns the winner, a string that says either "It's a tie!" or "User won!" or "Computer won!"
+        
+        // const checkWinner = (userHand, computerHand) => {
+        //     if ( userHand != "rock" && userHand != "paper" && userHand != "scissors") {
+        //         return "Your entry is invalid. Computer wins!"
+        //     }
+        //     else if (userHand === computerHand) {
+        //         return "It's a tie!";
+        //     }
+        //     else if ((userHand === "rock" && computerHand === "paper") || (userHand === "paper" && computerHand === "scissors") || (userHand === "scissors" && computerHand === "rock")) {
+        //         return "💻The computer wins!";
+        //     } 
+        //     else {
+        //         return "😁You win!";
+        //     }
+        // }
+
+        // // Call check winner function with your 2 variables cleanedUserChoice, and computerChoice, console.log the result 
+
+        // alert(checkWinner(userChoice, computerChoice));
+        // window.location.reload(true);
+
+    </script>
+</body>
+</html>
